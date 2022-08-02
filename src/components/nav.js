@@ -6,7 +6,12 @@ import logo from './logo.png';
 const Nav = () => (
   <div className="navbar">
     <div>
-      <img src={logo} alt="logo" />
+      <NavLink to="/">
+        <img src={logo} alt="logo" />
+      </NavLink>
+    </div>
+    <div>
+      <NavLink className="nav-item" to="/profile">My Profile</NavLink>
     </div>
   </div>
 );
