@@ -29,7 +29,8 @@ img {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
-  width: 250px;
+  width: auto;
+  gap: 20px;
 }
 
 .nav-item {
