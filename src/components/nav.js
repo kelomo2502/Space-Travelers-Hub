@@ -1,29 +1,43 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './logo.png';
 
-const Nav = () => (
-  <div className="navbar">
-    <div>
-      <NavLink className="brand" to="/">
-        <img src={logo} alt="logo" className="brand-logo" />
-        <span className="brand-name">Space Travelers' Hub </span>
-      </NavLink>
-    </div>
-    <ul className="nav-links">
-      <li>
-        <NavLink className="nav-item" to="/rockets">Rockets</NavLink>
-      </li>
-      <li>
-        <NavLink className="nav-item" to="/missions">Missions</NavLink>
-      </li>
-      <li>
-        <NavLink className="nav-item" to="/profile">My Profile</NavLink>
-      </li>
-    </ul>
-  </div>
-);
+// import '../styles/Navbar.css';
+
+const Nav = () => {
+  const urls = [
+    {
+      id: 1,
+      url: '/',
+      text: 'Rockets',
+    },
+    {
+      id: 2,
+      url: '/missions',
+      text: 'Missions',
+    },
+    {
+      id: 3,
+      url: '/myprofile',
+      text: 'My Profile',
+    },
+  ];
+
+  return (
+    <nav className="navbar">
+      <div className="brand">
+        <img src={logo} className="Brend" alt="Planet-img" />
+        <h1 className="nav-head">Space Travelers&apos; Hub</h1>
+      </div>
+      <ul className="nav-links">
+        {urls.map((url) => (
+          <li className="nav-item" key={url.id}>
+            <NavLink to={url.url}>{url.text}</NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
 export default Nav;
