@@ -1,44 +1,88 @@
-
-/* nav styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-  width: 90vw;
-  margin: 0 auto;
-  padding: 0.5rem;
+* {
+  box-sizing: border-box;
 }
 
-.brand {
-  display: flex;
-  text-decoration: none;
+.mission-cont {
+  margin-top: 30px;
 }
 
-span {
-  text-decoration: none;
-  color: black;
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 1rem 0 0 1rem;
+.tab-container {
+  border: 1px solid lightgray;
+  width: 96%;
+  margin: 2%;
 }
 
-img {
-  width: 4rem;
+th,
+td {
+  border: 1px solid gray;
+  padding: 10px;
 }
 
-.nav-links {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-around;
-  width: auto;
-  gap: 20px;
+.name-cell,
+.mission-head {
+  list-style: none;
+  width: 10%;
+  text-align: start;
 }
 
-.nav-item {
-  color: blue;
-  text-decoration: none;
+.wrapper:nth-child(odd) {
+  background-color: rgb(237, 237, 237);
 }
 
-.nav-item.active {
-  text-decoration: underline;
+.name-cell {
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.desc-head {
+  text-align: start;
+}
+
+.leave-btn {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: #f94343;
+  color: #fff;
+  width: 6rem;
+  height: 36px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.join-btn {
+  width: 6rem;
+  height: 36px;
+  background-color: #86eb86;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.act-badge {
+  border: 1px solid gray;
+  padding: 4px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: rgba(59 130 246 / 0.5);
+  width: 100%;
+  height: auto;
+  font-size: 13px;
+}
+
+.badge-cont {
+  width: 12%;
+}
+
+.badge {
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 13px;
+  width: 100%;
+  background-color: gray;
+  color: #fff;
+}
+
+.stat-head {
+  text-align: start;
 }
