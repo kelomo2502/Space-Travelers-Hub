@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Rockets component correctly 1`] = `
+<div
+  className="mission-cont container"
+>
+  <table
+    className="tab-container table"
+  >
+    <thead>
+      <tr
+        className="tab-row"
+      >
+        <th
+          className="mission-head"
+        >
+          Mission
+        </th>
+        <th
+          className="desc-head"
+        >
+          Description
+        </th>
+        <th
+          className="stat-head"
+        >
+          Status
+        </th>
+        <th>
+            
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;

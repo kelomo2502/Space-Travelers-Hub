@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mission-cont {
+  margin-top: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tab-container {
+  border: 1px solid lightgray;
+  width: 96%;
+  margin: 2%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+th,
+td {
+  border: 1px solid gray;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.name-cell,
+.mission-head {
+  list-style: none;
+  width: 10%;
+  text-align: start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper:nth-child(odd) {
+  background-color: rgb(237, 237, 237);
+}
+
+.name-cell {
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.desc-head {
+  text-align: start;
+}
+
+.leave-btn {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: #f94343;
+  color: #fff;
+  width: 6rem;
+  height: 36px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.join-btn {
+  width: 6rem;
+  height: 36px;
+  background-color: #86eb86;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.act-badge {
+  border: 1px solid gray;
+  padding: 4px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: rgba(59 130 246 / 0.5);
+  width: 100%;
+  height: auto;
+  font-size: 13px;
+}
+
+.badge-cont {
+  width: 12%;
+}
+
+.badge {
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 13px;
+  width: 100%;
+  background-color: gray;
+  color: #fff;
+}
+
+.stat-head {
+  text-align: start;
 }
