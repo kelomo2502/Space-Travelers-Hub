@@ -1,0 +1,58 @@
+.Rocket-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 38px;
+}
+
+.Rocket-card img {
+  width: 200px;
+  height: 150px;
+  margin: 18px;
+}
+
+.Rocket-card p {
+  width: 70%;
+}
+
+.Reserve-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.Reserve-btn:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.Cancel-btn {
+  padding: 6px 14px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.Cancel-btn:hover {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.Description {
+  line-height: 24px;
+}
+
+.Badge {
+  margin: 0 8px 8px 0;
+  padding: 4px 8px;
+  background-color: #00a2b8;
+  color: #fff;
+  border-radius: 4px;
+}

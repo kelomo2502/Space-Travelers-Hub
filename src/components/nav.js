@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './logo.png';
+import '../styles/Navbar.css';
 
 const Nav = () => {
   const urls = [
@@ -23,8 +24,8 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <div className="brand">
-        <img src={logo} className="Brend" alt="Planet-img" />
+      <div className="logo-container">
+        <img src={logo} className="logo" alt="logo-img" />
         <h1 className="nav-head">Space Travelers&apos; Hub</h1>
       </div>
       <ul className="nav-links">
