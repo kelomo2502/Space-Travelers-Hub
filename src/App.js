@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Profile from './components/profile';
+import MyProfile from './components/profile';
 import Nav from './components/nav';
 import Rockets from './components/rockets';
 import Missions from './components/missions';
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Rockets />} />
           <Route path="/missions" element={<Missions />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/myprofile" element={<MyProfile />} />
         </Routes>
       </BrowserRouter>
     </div>

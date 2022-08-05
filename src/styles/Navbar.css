@@ -33,6 +33,10 @@ a {
   color: #007bff;
 }
 
+a.active {
+  text-decoration: underline;
+}
+
 a:hover {
   text-decoration: underline;
   color: #00a2b8;
