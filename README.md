@@ -39,8 +39,8 @@ Space Travelers' Hub
 👤 **Gbenga Kelvin Oyewunmi**
 
 - GitHub: [@githubhandle](https://github.com/kelomo2502)
-- Twitter: [@twitterhandle](https://twitter.com/kelomo2502)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/kelomo2505)
+- Twitter: [@twitterhandle](https://twitter.com/kelomoJs)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/oyewunmi-gbenga)
 
 👤 **Suleiman Olaide**
 
