@@ -16,7 +16,7 @@ Space Travelers' Hub
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://spacetravlershub.herokuapp.com/)
+##Live Demo Link [https://spacetravlershub.herokuapp.com/]
 
 
 ## Getting Started
