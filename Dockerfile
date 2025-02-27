@@ -1,23 +1,12 @@
-# ===========================
-# 1️⃣ Base stage for dependencies
-# ===========================
-FROM node:20-alpine AS deps
+# Use Node.js as the base image
+FROM node:20-alpine
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Install dependencies only (Leverage caching)
+# Copy package files and install dependencies
 COPY package.json package-lock.json ./
-RUN npm ci --frozen-lockfile --prefer-offline --no-audit
-
-# ===========================
-# 2️⃣ Build stage
-# ===========================
-FROM node:20-alpine AS builder
-
-WORKDIR /app
-
-# Copy installed dependencies from deps stage
-COPY --from=deps /app/node_modules ./node_modules
+RUN npm install --frozen-lockfile
 
 # Copy the rest of the app files
 COPY . .
@@ -25,22 +14,18 @@ COPY . .
 # Build the React app
 RUN npm run build
 
-# Remove unnecessary files
-RUN npm prune --production
+# Install Nginx (web server)
+RUN apk add --no-cache nginx
 
-# ===========================
-# 3️⃣ Final stage (Serve with Nginx)
-# ===========================
-FROM nginx:1.25-alpine AS runner
-
-# Copy built React app from builder stage
-COPY --from=builder /app/build /usr/share/nginx/html
+# Remove default Nginx web files and copy our built app
+RUN rm -rf /usr/share/nginx/html/* && \
+    cp -r build/* /usr/share/nginx/html/
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port
+# Expose port 80 for web traffic
 EXPOSE 80
 
-# Start Nginx server
+# Start Nginx when the container runs
 CMD ["nginx", "-g", "daemon off;"]
