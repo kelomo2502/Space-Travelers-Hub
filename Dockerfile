@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install dependencies only (Leverage caching)
 COPY package.json package-lock.json ./
-RUN npm ci --frozen-lockfile
+RUN npm ci --frozen-lockfile --prefer-offline --no-audit
 
 # ===========================
 # 2️⃣ Build stage
@@ -25,25 +25,21 @@ COPY . .
 # Build the React app
 RUN npm run build
 
+# Remove unnecessary files
+RUN npm prune --production
+
 # ===========================
 # 3️⃣ Final stage (Serve with Nginx)
 # ===========================
 FROM nginx:1.25-alpine AS runner
 
-WORKDIR /usr/share/nginx/html
-
-# Remove default nginx static files
-RUN rm -rf ./*
-
 # Copy built React app from builder stage
-COPY --from=builder /app/build .
+COPY --from=builder /app/build /usr/share/nginx/html
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Use a non-root user for security
-RUN chown -R nginx:nginx /usr/share/nginx/html
-
+# Expose port
 EXPOSE 80
 
 # Start Nginx server
