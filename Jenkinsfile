@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t $IMAGE_NAME ./Space-Travelers-Hub'
+                    sh 'docker build -t $IMAGE_NAME .'
                 }
             }
         }
