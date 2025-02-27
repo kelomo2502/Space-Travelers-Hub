@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install dependencies only (Leverage caching)
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+RUN npm ci --frozen-lockfile
 
 # ===========================
 # 2️⃣ Build stage
