@@ -5,7 +5,7 @@ pipeline {
         stage('Connect To Github') {
             steps {
                 checkout scmGit(
-                    branches: [[name: '*/main']], 
+                    branches: [[name: '*/development']], 
                     extensions: [], 
                     userRemoteConfigs: [[url: 'https://github.com/kelomo2502/Space-Travelers-Hub.git']]
                 )
