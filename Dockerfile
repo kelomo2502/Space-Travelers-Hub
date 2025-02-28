@@ -1,31 +1,43 @@
-# Use Node.js as the base image
-FROM node:20-alpine
+# Stage 1: Build React application
+FROM node:20-alpine AS builder
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Install dependencies first for better layer caching
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --silent
 
-# Copy the rest of the app files
+# Copy source files
 COPY . .
 
-# Build the React app
-RUN npm run build
+# Build application with verification
+RUN npm run build && \
+    # Verify critical build files exist
+    [ -f build/index.html ] || (echo "Missing index.html" && exit 1) && \
+    [ -d build/static ] || (echo "Missing static directory" && exit 1)
 
-# Install Nginx (web server)
-RUN apk add --no-cache nginx
+# Stage 2: Production server
+FROM nginx:1.25-alpine
 
-# Remove default Nginx web files and copy our built app
-RUN rm -rf /usr/share/nginx/html/* && \
-    cp -r build/* /usr/share/nginx/html/
+# Remove default nginx files
+RUN rm -rf /usr/share/nginx/html/*
 
-# Copy custom Nginx configuration
+# Copy built assets from builder stage
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80 for web traffic
-EXPOSE 80
+# Set permissions (nginx user in Alpine has uid 101)
+RUN chown -R 101:101 /usr/share/nginx/html && \
+    chmod -R 755 /usr/share/nginx/html && \
+    # Verify file copy succeeded
+    [ -f /usr/share/nginx/html/index.html ] || (echo "Index.html missing after copy" && exit 1)
 
-# Start Nginx when the container runs
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s \
+    CMD wget --quiet --tries=1 --spider http://localhost:80 || exit 1
+
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
