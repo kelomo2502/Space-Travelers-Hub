@@ -8,7 +8,7 @@ import Missions from './components/missions';
 
 function App() {
   return (
-    <div className="page" style={{backgroundColor:"yellow"}}>
+    <div className="page" style={{backgroundColor:"red"}}>
       <BrowserRouter>
         <Nav />
         <Routes>
